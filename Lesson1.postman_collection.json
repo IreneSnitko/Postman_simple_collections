@@ -1,0 +1,676 @@
+{
+	"info": {
+		"_postman_id": "81f11d5e-a367-414a-a01f-b8c688096b40",
+		"name": "Lesson1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22334571"
+	},
+	"item": [
+		{
+			"name": "simple_requests",
+			"item": [
+				{
+					"name": "test_1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/get",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test_2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/put",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"put"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test_3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Order with id 2154 was added to the system. Thank you!\", function () {\r",
+									"    pm.response.to.have.body(\"Order with id 2154 was added to the system. Thank you!\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/order/2154",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"order",
+								"2154"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test_4_error404",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.\");\r",
+									"});\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/order/FERD",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"order",
+								"FERD"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lesson_1_with_tests",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 800ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(800);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://postman-echo.com/get",
+							"protocol": "https",
+							"host": [
+								"postman-echo",
+								"com"
+							],
+							"path": [
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test_5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/prod_order/10000",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"prod_order",
+								"10000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test_6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"PO with id 19999 created.\")\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/prod_order/19999",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"prod_order",
+								"19999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test_7",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Content-Type is present\", function () {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Error\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/prod_order/20000",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"prod_order",
+								"20000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test_8",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/prod_order/=",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"prod_order",
+								"="
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "multiply",
+			"item": [
+				{
+					"name": "test_9_multiply",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body({\"Success\":\"Product of 10.0 and 2.0 is 20.0\"});\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"factor_1\": 10,\r\n    \"factor_2\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/multiply_two",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"multiply_two"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test_13_multiply",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"104.03999999999999\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"factor_1\": 10.2,\r\n    \"factor_2\": 10.2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/multiply_two",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"multiply_two"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test_10_multiply",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Body is correct\", function () {\r",
+									"    pm.response.to.have.body({\"Success\":\"Product of 10.1 and 2.2 is 22.220000000000002\"});\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"factor_1\": 10.1,\r\n    \"factor_2\": 2.2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/multiply_two",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"multiply_two"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test_11_multiply",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"factor_1\": 10.0,\r\n    \"factor_2\": 2.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/multiply_two",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"multiply_two"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test_12_multiply_with_letters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code on of 4*\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([400,404,412]);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"The browser (or proxy) sent a request that this server could not understand.\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"factor_1\": avgvdfs,\r\n    \"factor_2\": 2.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/multiply_two",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"multiply_two"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test_13_with_params",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/multiply_two?factor_1=7.5&factor_2=3.3",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"multiply_two"
+							],
+							"query": [
+								{
+									"key": "factor_1",
+									"value": "7.5"
+								},
+								{
+									"key": "factor_2",
+									"value": "3.3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "multiply_test_14_error_412",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://www.answerit.ru/flaskapi/api/multiply_two?factor_1=dsgag&factor_2=3.3",
+							"protocol": "http",
+							"host": [
+								"www",
+								"answerit",
+								"ru"
+							],
+							"path": [
+								"flaskapi",
+								"api",
+								"multiply_two"
+							],
+							"query": [
+								{
+									"key": "factor_1",
+									"value": "dsgag"
+								},
+								{
+									"key": "factor_2",
+									"value": "3.3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
