@@ -9,6 +9,10 @@ Folder `simple_requests`:
 Folder `multiply`:
   requests: POST & PUT
   
-Folder `topbicycle.ru`
+Collection: topbicycle.ru
   requests: GET
   used variable {{city}} from Environment `test`
+  
+Collection: topbicycle.ru_all_values_quickly
+  request: GET
+  for running this collection use cities.json with list of values of variable "city"
