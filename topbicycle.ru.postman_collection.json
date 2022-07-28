@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "22dcb750-fbb3-4436-934e-ded96bc7d305",
+		"name": "topbicycle.ru",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22334571"
+	},
+	"item": [
+		{
+			"name": "test_bicycle_1_with_tests",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"983239\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://topbicycle.ru:/bicyclists/helsinki/",
+					"protocol": "https",
+					"host": [
+						"topbicycle",
+						"ru"
+					],
+					"port": "",
+					"path": [
+						"bicyclists",
+						"helsinki",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_bicycle_2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://topbicycle.ru:/bicyclists/malaga/",
+					"protocol": "https",
+					"host": [
+						"topbicycle",
+						"ru"
+					],
+					"port": "",
+					"path": [
+						"bicyclists",
+						"malaga",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_bicycle_3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://topbicycle.ru:/bicyclists/benalmadena/",
+					"protocol": "https",
+					"host": [
+						"topbicycle",
+						"ru"
+					],
+					"port": "",
+					"path": [
+						"bicyclists",
+						"benalmadena",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_bicycle_4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://topbicycle.ru:/bicyclists/cordoba/",
+					"protocol": "https",
+					"host": [
+						"topbicycle",
+						"ru"
+					],
+					"port": "",
+					"path": [
+						"bicyclists",
+						"cordoba",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_bicycle_5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://topbicycle.ru:/bicyclists/fuengirola/",
+					"protocol": "https",
+					"host": [
+						"topbicycle",
+						"ru"
+					],
+					"port": "",
+					"path": [
+						"bicyclists",
+						"fuengirola",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_bicycle_6_with_variable_Environment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(pm.environment.get(\"city\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://topbicycle.ru/bicyclists/{{city}}/",
+					"protocol": "https",
+					"host": [
+						"topbicycle",
+						"ru"
+					],
+					"path": [
+						"bicyclists",
+						"{{city}}",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
