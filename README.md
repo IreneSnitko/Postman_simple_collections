@@ -8,3 +8,7 @@ Folder `simple_requests`:
   
 Folder `multiply`:
   requests: POST & PUT
+  
+Folder `topbicycle.ru`
+  requests: GET
+  used variable {{city}} from Environment `test`
