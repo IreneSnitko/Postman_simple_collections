@@ -1,6 +1,7 @@
 # Postman_simple_collections
 
 Collection: Lesson1
+
 url: http://www.answerit.ru
       
       Folder `simple_requests`:
@@ -10,12 +11,14 @@ url: http://www.answerit.ru
         requests: POST & PUT
   
 Collection: topbicycle.ru
+
 url: https://topbicycle.ru
   
       requests: GET
       used variable {{city}} from Environment `test`
   
 Collection: topbicycle.ru_all_values_quickly
+
 url: https://topbicycle.ru
   
       request: GET
