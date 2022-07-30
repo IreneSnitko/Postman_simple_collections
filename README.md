@@ -22,5 +22,4 @@ Collection: topbicycle.ru_all_values_quickly
 url: https://topbicycle.ru
   
       request: GET
-      for running this collection use cities.json with list of values of variable "city"
-      Into Request_bicycle_with_jsonFile_Test_and_script.js contains pre-request script & test added in Postman
+      for running this collection use cities.json with list of values of variable "city"    
