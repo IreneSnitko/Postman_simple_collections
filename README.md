@@ -4,7 +4,7 @@
 
 url: http://www.answerit.ru
       
-      Folder `simple_requests`:
+      Folder *simple_requests*:
         requests: GET & PUT  
   
       Folder `multiply`:
