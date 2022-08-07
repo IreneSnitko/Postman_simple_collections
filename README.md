@@ -13,11 +13,13 @@ Folder multiply ------------> requests: POST & PUT
 url: https://topbicycle.ru
   
 requests: GET
-*used variable {{city}} from Environment `test`*
+
+*used variable {{city}} from Environment* `test`
   
 ##### Collection: topbicycle.ru_all_values_quickly #####
 
 url: https://topbicycle.ru
   
 request: GET
-*for running this collection use cities.json with list of values of variable "city"*    
+
+*for running this collection use cities.json with list of values of variable* `city`    
