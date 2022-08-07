@@ -4,9 +4,9 @@
 
 url: http://www.answerit.ru
       
-Folder simple_requests -----> requests: GET & PUT  
+Folder **simple_requests** -----> requests: GET & PUT  
   
-Folder multiply ------------> requests: POST & PUT
+Folder **multiply** ------------> requests: POST & PUT
   
 ##### Collection: topbicycle.ru #####
 
